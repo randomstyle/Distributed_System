@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message Request {
+    string data = 1;
+
+}
+
+message Response {
+    string data = 1;
+}
+
+message RequestSequence {
+    int32 data = 1;
+}
+
+service Datastore {
+   rpc put(Request) returns (Response) {}
+   rpc delete(Request) returns (Response) {}
+   rpc connect_server(RequestSequence) returns (stream Response) {}
+   
+}
